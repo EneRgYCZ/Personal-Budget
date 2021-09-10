@@ -11,6 +11,7 @@ class TransationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Build() TransactionList');
     return transactions.isEmpty
         ? LayoutBuilder(builder: (ctx, constrains) {
             return Column(
@@ -21,7 +22,7 @@ class TransationList extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
@@ -46,7 +47,7 @@ class TransationList extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 30,
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: FittedBox(
                         child: Text('\$${transactions[index].amount}'),
                       ),
@@ -62,8 +63,8 @@ class TransationList extends StatelessWidget {
                   trailing: MediaQuery.of(context).size.width > 360
                       ? ElevatedButton.icon(
                           onPressed: () => deleteTx(transactions[index].id),
-                          icon: Icon(Icons.delete),
-                          label: Text('Delete'),
+                          icon: const Icon(Icons.delete),
+                          label: const Text('Delete'),
                           style: ButtonStyle(
                             foregroundColor:
                                 MaterialStateProperty.all(Colors.red),
@@ -72,7 +73,7 @@ class TransationList extends StatelessWidget {
                           ),
                         )
                       : IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           color: Theme.of(context).errorColor,
                           onPressed: () => deleteTx(transactions[index].id),
                         ),
